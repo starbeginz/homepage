@@ -25,7 +25,7 @@
     #sb_phrase .hl { color: #E7B85C; }
     #sb_brand {
       opacity: 0; transform: translateY(22px);
-      transition: opacity 1.1s ease, transform 1.1s ease;
+      transition: opacity .55s ease, transform .55s ease;
       display: flex; flex-direction: column; align-items: center; gap: 18px;
     }
     #sb_brand svg { width: min(320px, 50vw); height: auto; display: block; }
@@ -68,8 +68,8 @@
     }
 
     // Intro timeline: phrase is already visible; brand slides in below it.
-    setTimeout(function () { brand.style.opacity = '1'; brand.style.transform = 'translateY(0)'; }, 650);
-    setTimeout(function () { introDone = true; reveal(); }, 2600);
+    setTimeout(function () { brand.style.opacity = '1'; brand.style.transform = 'translateY(0)'; }, 1000);
+    setTimeout(function () { introDone = true; reveal(); }, 1900);
 
     // Homepage signals readiness from inside the iframe (see home.html).
     window.addEventListener('message', function (e) {
