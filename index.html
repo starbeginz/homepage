@@ -40,7 +40,7 @@
 <body>
   <!-- Heavy homepage loads in the background immediately, hidden until ready. -->
   <!-- ?v= is a cache buster: bump it whenever home.html changes, or visitors keep the cached copy. -->
-  <iframe id="sb_app" src="home.html?v=20260723a" title="스타비긴즈"></iframe>
+  <iframe id="sb_app" src="home.html?v=20260723b" title="스타비긴즈"></iframe>
 
   <!-- Lightweight intro: paints instantly, no blank/flicker. -->
   <div id="sb_intro">
@@ -85,8 +85,10 @@
     window.addEventListener('message', function (e) {
       if (e.data === 'sb-home-ready') { homeReady = true; reveal(); }
     });
-    // Fallbacks so the homepage is never stuck hidden.
-    app.addEventListener('load', function () { setTimeout(function () { homeReady = true; reveal(); }, 1200); });
+    // Fallbacks so the homepage is never stuck hidden. The iframe 'load' event
+    // fires for the loader shell, long before the real page is unpacked, so it
+    // only gets a generous safety timeout — 'sb-home-ready' is the real signal.
+    app.addEventListener('load', function () { setTimeout(function () { homeReady = true; reveal(); }, 6000); });
     setTimeout(function () { homeReady = true; reveal(); }, 12000);
   })();
   </script>
