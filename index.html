@@ -35,7 +35,8 @@
 </head>
 <body>
   <!-- Heavy homepage loads in the background immediately, hidden until ready. -->
-  <iframe id="sb_app" src="home.html" title="스타비긴즈"></iframe>
+  <!-- ?v= is a cache buster: bump it whenever home.html changes, or visitors keep the cached copy. -->
+  <iframe id="sb_app" src="home.html?v=20260723a" title="스타비긴즈"></iframe>
 
   <!-- Lightweight intro: paints instantly, no blank/flicker. -->
   <div id="sb_intro">
